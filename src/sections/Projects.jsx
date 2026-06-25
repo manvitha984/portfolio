@@ -2,6 +2,29 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
 const projects = [
+
+  {
+  title: "Taskly : Multi-Tenant Real-Time Task Management System",
+  description:
+    "A production-oriented SaaS-style task management platform featuring multi-tenant architecture, JWT authentication, role-based access control, real-time collaboration with Socket.io, persistent notifications, and strict organization-level data isolation for secure team collaboration.",
+  image: "/projects/taskly.jpeg",
+  tags: [
+    "Next.js",
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "JWT",
+    "Socket.io",
+    "RBAC",
+    "REST API",
+    "Real-Time Systems",
+    "Multi-Tenant Architecture"
+  ],
+  link: "https://github.com/manvitha984/Taskly",
+  github: "https://github.com/manvitha984/Taskly",
+},
   {
   title: "Axiom : AI-Powered Business Automation Platform",
   description:
@@ -94,20 +117,22 @@ export const Projects = () => {
               className="group bg-surface rounded-2xl overflow-hidden animate-fade-in border border-border/50 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
               style={{ animationDelay: `${(idx + 1) * 80}ms` }}
             >
-              {/* 16:9 image frame — image fills with object-cover and centers focal point */}
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-center transition-opacity duration-300"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                    const fallback = e.currentTarget.parentElement.querySelector(".project-fallback");
-                    if (fallback) fallback.style.display = "flex";
-                  }}
-                />
+              {/* Fixed screenshot frame so each project preview reads at the same size */}
+              <div className="relative overflow-hidden aspect-16/10 bg-[#11181e]">
+                <div className="absolute inset-0 p-4 md:p-5">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.parentElement.parentElement.querySelector(".project-fallback");
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                </div>
 
                 {/* fallback if image fails */}
                 <div

@@ -25,7 +25,7 @@ const achievements = [
   {
     icon: Code,
     title: "Competitive Programming",
-    description: "Expert on Codeforces • Knight on LeetCode • 3★ on CodeChef",
+    description: "Expert on Codeforces • Knight on LeetCode • 4★ on CodeChef",
     highlight: "Competitive Coder",
     color: "primary",
   },
